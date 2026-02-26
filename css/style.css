@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: white;
+}
+
+header {
+  background: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Righteous', sans-serif;
+  color: salmon;
+}
+
+nav {
+  background: salmon;
+  padding: 10px;
+}
+
+nav a {
+  color: black;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero img {
+  width: 300px;
+  margin: 20px 0;
+}
+
+#sales-data {
+  font-family: Arial, sans-serif;
+}
+
+article {
+  margin-bottom: 30px;
+}
+table {
+  border-collapse: collapse;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+th {
+  background-color: salmon;
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+form {
+  text-align: center;
+  margin-top: 30px;
+}
+
+form input {
+  padding: 6px;
+  margin: 5px;
+}
+
+form button {
+  padding: 6px 12px;
+  background: salmon;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.hero {
+  text-align: center;
+  padding: 40px;
+}
+
+.hero-img {
+  width: 300px;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: auto;
+}
+footer {
+  background: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
