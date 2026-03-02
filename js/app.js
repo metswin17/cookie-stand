@@ -9,11 +9,14 @@ const hours = [
 const stores = [];
 const table = document.getElementById('sales-table');
 
-function Store(name, min, max, avg) {
+function Store(name, min, max, avg, address, phone) {
   this.name = name;
   this.minCustomers = min;
   this.maxCustomers = max;
   this.avgCookies = avg;
+  this.address = address;
+  this.phone = phone;
+  this.hoursOpen = '6am - 7pm';
   this.hourlySales = [];
   this.totalDailyCookies = 0;
 
@@ -121,32 +124,99 @@ function renderTable() {
 }
 
 /* Initial Stores */
-new Store('Seattle', 23, 65, 6.3);
-new Store('Tokyo', 3, 24, 1.2);
-new Store('Dubai', 11, 38, 3.7);
-new Store('Paris', 20, 38, 2.3);
-new Store('Lima', 2, 16, 4.6);
+new Store(
+  'Seattle',
+  23, 65, 6.3,
+  '2901 3rd Ave #300, Seattle, WA',
+  '(206) 555-1234'
+);
 
-renderTable();
+new Store(
+  'Tokyo',
+  3, 24, 1.2,
+  '1-2-3 Shibuya, Tokyo, Japan',
+  '+81 3-5555-1234'
+);
+
+new Store(
+  'Dubai',
+  11, 38, 3.7,
+  'Sheikh Zayed Rd, Dubai, UAE',
+  '+971 4-555-1234'
+);
+
+new Store(
+  'Paris',
+  20, 38, 2.3,
+  '10 Rue de Rivoli, Paris, France',
+  '+33 1 23 45 67 89'
+);
+
+new Store(
+  'Lima',
+  2, 16, 4.6,
+  'Av. Larco 123, Lima, Peru',
+  '+51 1 555 1234'
+);
+if (table) {
+  renderTable();
+}
 
 /* Form Handler */
+
 const form = document.getElementById('store-form');
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+if (form) {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-  const name = event.target.name.value.trim();
-  const min = parseInt(event.target.min.value);
-  const max = parseInt(event.target.max.value);
-  const avg = parseFloat(event.target.avg.value);
-  
-  if (min > max || min < 0 || max < 0 || avg < 0) {
-    alert("Please enter valid numbers. Min must be less than Max.");
-    return;
+    const name = event.target.name.value.trim();
+    const min = parseInt(event.target.min.value);
+    const max = parseInt(event.target.max.value);
+    const avg = parseFloat(event.target.avg.value);
+
+    if (min > max || min < 0 || max < 0 || avg < 0) {
+      alert("Please enter valid numbers. Min must be less than Max.");
+      return;
+    }
+
+    new Store(name, min, max, avg);
+
+    if (table) {
+      renderTable();
+    }
+
+    form.reset();
+  });
+}
+
+function renderLocations() {
+  const container = document.getElementById('locations-container');
+
+  if (!container) return; // prevents errors on sales page
+
+  container.innerHTML = '';
+
+  for (let store of stores) {
+    const article = document.createElement('article');
+
+    const title = document.createElement('h2');
+    title.textContent = store.name;
+    article.appendChild(title);
+
+    const address = document.createElement('p');
+    address.textContent = `Address: ${store.address}`;
+    article.appendChild(address);
+
+    const hours = document.createElement('p');
+    hours.textContent = `Hours Open: ${store.hoursOpen}`;
+    article.appendChild(hours);
+
+    const phone = document.createElement('p');
+    phone.textContent = `Contact: ${store.phone}`;
+    article.appendChild(phone);
+
+    container.appendChild(article);
   }
-
-  new Store(name, min, max, avg);
-
-  renderTable();
-  form.reset();
-});
+}
+renderLocations();
