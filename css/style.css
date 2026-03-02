@@ -36,9 +36,11 @@ main {
   text-align: center;
 }
 
-.hero img {
-  width: 300px;
-  margin: 20px 0;
+.hero-img {
+  width: 80%;
+  max-width: 1000px;
+  height: auto;
+}
 }
 
 #sales-data {
@@ -91,9 +93,7 @@ form button {
   padding: 40px;
 }
 
-.hero-img {
-  width: 300px;
-}
+
 
 .hero-text {
   max-width: 600px;
@@ -132,9 +132,7 @@ nav a {
   padding: 60px 20px;
 }
 
-.hero img {
-  max-width: 400px;
-}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
