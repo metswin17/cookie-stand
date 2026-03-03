@@ -162,6 +162,16 @@ if (table) {
   renderTable();
 }
 
+new Store(
+  'London',
+  6, 22, 5.7,
+  'Av. 9667 Downtown, London, UK',
+  '+44 20 7123 4567'
+);
+if (table) {
+  renderTable();
+}
+
 /* Form Handler */
 
 const form = document.getElementById('store-form');
@@ -220,3 +230,4 @@ function renderLocations() {
   }
 }
 renderLocations();
+
