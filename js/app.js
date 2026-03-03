@@ -158,18 +158,21 @@ new Store(
   'Av. Larco 123, Lima, Peru',
   '+51 1 555 1234'
 );
-if (table) {
-  renderTable();
-}
-
 new Store(
   'London',
   6, 22, 5.7,
   'Av. 9667 Downtown, London, UK',
   '+44 20 7123 4567'
 );
+
+// Render ONCE after all stores are created
 if (table) {
   renderTable();
+}
+function findStoreByName(name) {
+  return stores.find(store => 
+    store.name.toLowerCase() === name.toLowerCase()
+  );
 }
 
 /* Form Handler */
