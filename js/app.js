@@ -161,7 +161,7 @@ new Store(
 new Store(
   'London',
   6, 22, 5.7,
-  'Av. 9667 Downtown, London, UK',
+  'Av. 9667 Donton, London, UK',
   '+44 20 7123 4567'
 );
 
